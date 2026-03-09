@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- CONTROLES (BOTÕES) --- */
+.controls {
+    margin-bottom: 20px;
+}
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+button:hover { background-color: #45a049; }
+
+/* --- A QUADRA --- */
+.court-container {
+    position: relative;
+    width: 900px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 40px; 
+    background-color: #333;
+}
+
+.court {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #ff9800;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+
+/* Linhas da quadra */
+.line {
+    position: absolute;
+    background-color: white;
+}
+.net {
+    width: 8px;
+    height: calc(100% + 20px);
+    left: 50%;
+    top: -10px;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    z-index: 5;
+}
+.three-meter-left {
+    width: 4px;
+    height: 100%;
+    left: 33.33%;
+}
+.three-meter-right {
+    width: 4px;
+    height: 100%;
+    left: 66.66%;
+}
+
+/* --- OS JOGADORES --- */
+.player {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    transition: all 0.8s ease-in-out; 
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
+.team-left { background-color: #1e88e5; border: 2px solid white; }
+.team-right { background-color: #e53935; border: 2px solid white; }
+.libero { background-color: #fdd835; color: black; border: 2px solid black;}

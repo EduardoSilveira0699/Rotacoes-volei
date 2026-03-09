@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotações de Vôlei</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Quadro Tático de Vôlei</h1>
+    
+    <div class="controls">
+        <button onclick="setRotation(1)">Rotação 1</button>
+        <button onclick="setRotation(2)">Rotação 2</button>
+        <button onclick="setRotation(3)">Rotação 3</button>
+        <button onclick="setRotation(4)">Rotação 4</button>
+        <button onclick="setRotation(5)">Rotação 5</button>
+        <button onclick="setRotation(6)">Rotação 6</button>
+    </div>
+
+    <div class="court-container">
+        <div class="court" id="volleyball-court">
+            <div class="line net"></div>
+            <div class="line three-meter-left"></div>
+            <div class="line three-meter-right"></div>
+
+            <div class="player team-left" id="L-Lev">Lev</div>
+            <div class="player team-left" id="L-P1">P1</div>
+            <div class="player team-left" id="L-P2">P2</div>
+            <div class="player team-left" id="L-O">Op</div>
+            <div class="player team-left" id="L-C1">C1</div>
+            <div class="player team-left libero" id="L-L">Lib</div>
+            <div class="player team-left" id="L-C2">C2</div> <div class="player team-right" id="R-Lev">Lev</div>
+            <div class="player team-right" id="R-P1">P1</div>
+            <div class="player team-right" id="R-P2">P2</div>
+            <div class="player team-right" id="R-O">Op</div>
+            <div class="player team-right" id="R-C1">C1</div>
+            <div class="player team-right libero" id="R-L">Lib</div>
+            <div class="player team-right" id="R-C2">C2</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
