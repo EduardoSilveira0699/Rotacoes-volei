@@ -1,3 +1,12 @@
+const descriptions = {
+    1: "1-Rotação-2: O Levantador do time da esquerda inicia na posição 1 sacando.\n O time da direita forma uma linha de passe com o Levantador na posição 2.",
+    2: "6-Rotação-1: O Ponteiro 1 do time da esquerda está no saque.\n O time da direita forma uma linha de passe com o Levantador na posição 1, Ponteiro 1 atacando na saida de rede e o Oposto atacando na entrada de rede.",
+    3: "5-Rotação-6: O central 1 do time da esquerda está no saque, o libero sai.\n O time da direita forma uma linha de passe com o Levantador na posição 6, Ponteiro 2 atacando na entrada de rede e o Oposto atacando na saida de rede normalmente.",
+    4: "4-Rotação-5: O Oposto do time da esquerda está no saque, libero volta.\n O time da direita forma uma linha de passe com o Levantador na posição 5.",
+    5: "3-Rotação-4: O Ponteiro 2 do time da esquerda está no saque.\n O time da direita forma uma linha de passe com o Levantador na posição 4 (escadinha) entrando na rede,  Oposto no fundo atacando na linha dos 3m.",
+    6: "2-Rotação-3: O Central 2 do time da esquerda está no saque, o libero sai.\n O time da direita forma uma linha de passe com o Levantador na posição 3."
+};
+
 const rotations = {
     1: {
         // TIME ESQUERDA (AZUL - SAQUE - ROTAÇÃO 1)
@@ -12,33 +21,107 @@ const rotations = {
         // TIME DIREITA (VERMELHO - RECEPÇÃO - ROTAÇÃO 2)
         "R-Lev": { x: 55, y: 10 },  // Infiltrando/Rede superior
         "R-L":   { x: 82, y: 20 },  // Linha de passe (superior)
-        "R-P2":  { x: 85, y: 50 },  // Linha de passe (centro)
-        "R-P1":  { x: 80, y: 75 },  // Linha de passe (inferior)
+        "R-P2":  { x: 85, y: 55 },  // Linha de passe (centro)
+        "R-P1":  { x: 80, y: 85 },  // Linha de passe (inferior)
         "R-C1":  { x: 65, y: 95 },  // Puxado um pouco para a rede (inferior)
         "R-O":   { x: 96, y: 60 },  // Escondido na recepção (fundo direito)
         "R-C2":  { x: 80, y: 115 },  // C2 NO BANCO DE RESERVAS (Fora da quadra)
     },
     2: {
         // TIME ESQUERDA (SACA) 
-        "L-Lev": { x: 25, y: 80 },  
-        "L-P1":  { x: 25, y: 50 },  
-        "L-C1":  { x: 35, y: 80 },  
-        "L-O":   { x: -5, y: 80 },  
-        "L-P2":  { x: 15, y: 20 },  
-        "L-L":   { x: 15, y: 80 },  
+        "L-Lev": { x: 20, y: 80 },  
+        "L-P1":  { x: -3, y: 88 },  
+        "L-C1":  { x: 45, y: 55 },  
+        "L-O":   { x: 45, y: 70 },  
+        "L-P2":  { x: 45, y: 40 },  
+        "L-L":   { x: 26, y: 25 },  
+        "L-C2":  { x: 20, y: 115 },
 
         // TIME DIREITA (RECEBE) 
-        "R-P1":  { x: 60, y: 50 },  
-        "R-C1":  { x: 80, y: 80 },  
-        "R-O":   { x: 70, y: 20 },  
-        "R-P2":  { x: 80, y: 20 },  
-        "R-L":   { x: 90, y: 80 },  
-        "R-Lev": { x: 85, y: 50 },  
+        "R-P1":  { x: 80, y: 20 },  
+        "R-C1":  { x: 55, y: 65 },  
+        "R-O":   { x: 70, y: 95 },  
+        "R-P2":  { x: 83, y: 75 },  
+        "R-L":   { x: 85, y: 45 },  
+        "R-Lev": { x: 83, y: 10 },  
+        "R-C2":  { x: 80, y: 115 },  
     },
-    3: { },
-    4: { },
-    5: { },
-    6: { }
+    3: {
+        // TIME ESQUERDA (SACA) 
+        "L-Lev": { x: 20, y: 80 },  
+        "L-P1":  { x: 10, y: 50 },  
+        "L-C1":  { x: -3, y: 88 },  
+        "L-O":   { x: 45, y: 70 },  
+        "L-P2":  { x: 45, y: 40 },  
+        "L-L":   { x: 20, y: 115 },  
+        "L-C2":  { x: 45, y: 55 },
+
+        // TIME DIREITA (RECEBE) 
+        "R-P1":  { x: 83, y: 20 },  
+        "R-C1":  { x: 65, y: 5 },  
+        "R-O":   { x: 55, y: 15 },  
+        "R-P2":  { x: 80, y: 85 },  
+        "R-L":   { x: 85, y: 55 },  
+        "R-Lev": { x: 60, y: 30 },  
+        "R-C2":  { x: 80, y: 115 }, 
+    },
+    4: { 
+        // TIME ESQUERDA (SACA) 
+        "L-Lev": { x: 45, y: 70 },  
+        "L-P1":  { x: 10, y: 50 },  
+        "L-C1":  { x: 20, y: 115 },  
+        "L-O":   { x: -3, y: 88 },  
+        "L-P2":  { x: 45, y: 40 },  
+        "L-L":   { x: 26, y: 25 },  
+        "L-C2":  { x: 45, y: 55 },
+
+        // TIME DIREITA (RECEBE) 
+        "R-P1":  { x: 85, y: 55 },  
+        "R-C1":  { x: 80, y: 115 },  
+        "R-O":   { x: 60, y: 5 },  
+        "R-P2":  { x: 80, y: 85 },  
+        "R-L":   { x: 83, y: 20 },  
+        "R-Lev": { x: 65, y: 65 },  
+        "R-C2":  { x: 70, y: 95 }, 
+    },
+    5: {
+        // TIME ESQUERDA (SACA) 
+        "L-Lev": { x: 45, y: 70 },  
+        "L-P1":  { x: 45, y: 40 },  
+        "L-C1":  { x: 20, y: 115 },  
+        "L-O":   { x: 20, y: 80 },  
+        "L-P2":  { x: -3, y: 88 },  
+        "L-L":   { x: 26, y: 25 },  
+        "L-C2":  { x: 45, y: 55 },
+
+        // TIME DIREITA (RECEBE) 
+        "R-P1":  { x: 85, y: 55 },  
+        "R-C1":  { x: 80, y: 115 },  
+        "R-O":   { x: 85, y: 5 },  
+        "R-P2":  { x: 80, y: 85 },  
+        "R-L":   { x: 83, y: 20 },  
+        "R-Lev": { x: 55, y: 95 },  
+        "R-C2":  { x: 65, y: 90 },
+     },
+    6: {
+        // TIME ESQUERDA (SACA) 
+        "L-Lev": { x: 45, y: 70 },  
+        "L-P1":  { x: 45, y: 40 },  
+        "L-C1":  { x: 45, y: 55 },  
+        "L-O":   { x: 20, y: 80 },  
+        "L-P2":  { x: 10, y: 50 },  
+        "L-L":   { x: 20, y: 115 },  
+        "L-C2":  { x: -3, y: 88 },
+
+        // TIME DIREITA (RECEBE) 
+        "R-P1":  { x: 80, y: 85 },  
+        "R-C1":  { x: 80, y: 115 },  
+        "R-O":   { x: 95, y: 30 },  
+        "R-P2":  { x: 83, y: 20 },  
+        "R-L":   { x: 83, y: 55 },  
+        "R-Lev": { x: 55, y: 30 },  
+        "R-C2":  { x: 65, y: 5 },
+     }
 };
 
 function setRotation(num) {
@@ -48,12 +131,19 @@ function setRotation(num) {
         return;
     }
 
+    // Move os jogadores
     for (const playerId in rot) {
         const playerElement = document.getElementById(playerId);
         if (playerElement) {
             playerElement.style.left = rot[playerId].x + '%';
             playerElement.style.top = rot[playerId].y + '%';
         }
+    }
+
+    // MUDA O TEXTO DA EXPLICAÇÃO
+    const descElement = document.getElementById("rotation-description");
+    if (descElement && descriptions[num]) {
+        descElement.innerText = descriptions[num];
     }
 }
 

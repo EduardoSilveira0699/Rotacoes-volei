@@ -9,17 +9,31 @@
 <body>
 
     <h1>Quadro Tático de Vôlei</h1>
+    <div class="legend-box">
+        <h3>X - Rotação - Y</h3>
+        <p>O número <strong>X</strong> = rotação em que o levantador está no time sacador</p>
+        <p>O número <strong>Y</strong> = posição do levantador na recepção adversária</p>
+    </div>
     
     <div class="controls">
-        <button onclick="setRotation(1)">Rotação 1</button>
-        <button onclick="setRotation(2)">Rotação 2</button>
-        <button onclick="setRotation(3)">Rotação 3</button>
-        <button onclick="setRotation(4)">Rotação 4</button>
-        <button onclick="setRotation(5)">Rotação 5</button>
-        <button onclick="setRotation(6)">Rotação 6</button>
+        <button onclick="setRotation(1)">1-Rotação-2</button>
+        <button onclick="setRotation(2)">6-Rotação-1</button>
+        <button onclick="setRotation(3)">5-Rotação-6</button>
+        <button onclick="setRotation(4)">4-Rotação-5</button>
+        <button onclick="setRotation(5)">3-Rotação-4</button>
+        <button onclick="setRotation(6)">2-Rotação-3</button>
     </div>
 
+    <div id="rotation-description" class="description-box">
+    </div>
+    
+
     <div class="court-container">
+        <nav class="court-titles">
+            <h2>Saque</h2>
+            <h2>Recepção</h2>
+        </nav>
+        
         <div class="court" id="volleyball-court">
             <div class="line net"></div>
             <div class="line three-meter-left"></div>
@@ -31,7 +45,8 @@
             <div class="player team-left" id="L-O">Op</div>
             <div class="player team-left" id="L-C1">C1</div>
             <div class="player team-left libero" id="L-L">Lib</div>
-            <div class="player team-left" id="L-C2">C2</div> <div class="player team-right" id="R-Lev">Lev</div>
+            <div class="player team-left" id="L-C2">C2</div> 
+            <div class="player team-right" id="R-Lev">Lev</div>
             <div class="player team-right" id="R-P1">P1</div>
             <div class="player team-right" id="R-P2">P2</div>
             <div class="player team-right" id="R-O">Op</div>
@@ -41,6 +56,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+
+    <script src="script2.js"></script>
 </body>
 </html>

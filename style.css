@@ -7,6 +7,30 @@ body {
     padding: 20px;
 }
 
+/* --- LEGENDA DO TÍTULO --- */
+.legend-box {
+    background-color: #2a2a2a; /* Um tom sutilmente mais claro que o fundo */
+    border: 1px solid #4CAF50; /* Borda verde combinando com os botões */
+    border-radius: 8px;
+    padding: 15px 25px;
+    margin: 0 auto 25px auto; /* Centraliza e dá espaço para os botões abaixo */
+    width: fit-content; /* A caixa abraça o texto, sem ficar larga demais */
+    color: #ddd;
+}
+
+.legend-box h3 {
+    color: #4CAF50; /* Título em verde para destacar o formato */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.legend-box p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
 /* --- CONTROLES (BOTÕES) --- */
 .controls {
     margin-bottom: 20px;
@@ -24,20 +48,50 @@ button {
 }
 button:hover { background-color: #45a049; }
 
-/* --- A QUADRA --- */
+/* --- CAIXA DE EXPLICAÇÃO --- */
+.description-box {
+    background-color: #444;
+    color: #fff;
+    padding: 15px 20px;
+    margin: 0 auto 20px auto;
+    width: 900px; /* Mesma largura da quadra */
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-left: 5px solid #4CAF50; /* Detalhe verde na esquerda */
+    text-align: left;
+    white-space: pre-line; /* ISSO FAZ O \n FUNCIONAR! */
+}
+
 .court-container {
     position: relative;
     width: 900px;
-    height: 450px;
+    
     margin: 0 auto;
     padding: 40px; 
     background-color: #333;
 }
 
+/* --- TÍTULOS DA QUADRA --- */
+.court-titles {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.court-titles h2 {
+    width: 50%; /* Divide o espaço exatamente no meio (450px para cada lado) */
+    text-align: center; /* Centraliza a palavra dentro da sua metade */
+    margin: 0;
+    font-size: 24px;
+    color: white; /* Garante que o texto fique branco e legível */
+}
+
 .court {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 450px;
     background-color: #ff9800;
     border: 5px solid white;
     box-sizing: border-box;
@@ -91,3 +145,9 @@ button:hover { background-color: #45a049; }
 .team-left { background-color: #1e88e5; border: 2px solid white; }
 .team-right { background-color: #e53935; border: 2px solid white; }
 .libero { background-color: #fdd835; color: black; border: 2px solid black;}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
