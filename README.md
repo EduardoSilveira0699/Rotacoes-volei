@@ -11,8 +11,6 @@ posicionamento no vôlei.
 
 ------------------------------------------------------------------------
 
-# 🎯 Objetivo do Projeto
-
 O objetivo deste projeto é:
 
 -   Demonstrar **rotações táticas do voleibol**
@@ -32,10 +30,10 @@ desenvolvimento web como:
 
 # 🛠️ Tecnologias Utilizadas
 
--   **HTML5** → Estrutura da aplicação\
--   **CSS3** → Estilização da quadra e jogadores\
--   **JavaScript (Vanilla JS)** → Lógica das rotações e manipulação do
-    DOM
+-   **HTML5**
+-   **CSS3**
+-   **JavaScript (Vanilla JS)**
+-   **JSON (armazenamento das rotações)**
 
 ------------------------------------------------------------------------
 
@@ -45,50 +43,77 @@ desenvolvimento web como:
     │
     ├── index.html
     ├── style.css
-    └── js
-        └── script_otimizado.js
-        └── script1.js (primeira tentativa, sem otimizações)
+    │
+    ├── js
+    │   └── script_otimizado.js  
+    │
+    ├── data
+    │   └── rotations.json
+    ├── img
+    │   └── logo.png 
     
 
 ------------------------------------------------------------------------
 
-# 🧠 Funcionamento do Sistema
+# 🧠 Arquitetura
 
-O sistema funciona com base em **dados de rotações armazenados em um
-objeto JavaScript**.
+Os **dados das rotações** ficam separados da lógica do sistema.
 
-Cada rotação possui:
+Arquivo:
 
--   **Descrição tática**
--   **Posição de cada jogador na quadra**
+    data/rotations.json
 
-Exemplo da estrutura de dados:
+Exemplo de estrutura:
 
-``` javascript
-const rotationsData = {
-    1: {
-        desc: "Descrição da rotação",
-        positions: {
-            "L-Lev": { x: -3, y: 88 },
-            "L-P1": { x: 45, y: 40 }
-        }
+``` json
+{
+  "1": {
+    "desc": "Descrição da rotação",
+    "positions": {
+      "L-Lev": { "x": -3, "y": 88 }
     }
+  }
 }
 ```
 
-Onde:
+O JavaScript carrega esses dados usando:
 
--   `desc` → explicação da rotação\
--   `positions` → coordenadas de cada jogador
+``` javascript
+fetch("data/rotations.json")
+```
 
-As posições usam **porcentagem (%)**, facilitando o posicionamento
-relativo na quadra.
+Isso permite:
+
+-   alterar rotações sem modificar o código
+-   conectar futuramente com APIs
+-   organizar melhor o projeto
 
 ------------------------------------------------------------------------
 
-# 🏐 Jogadores e Identificação
+# ⚙️ Funcionamento
 
-Cada jogador possui um **ID único**, indicando:
+Quando a página abre:
+
+1.  O JS faz **fetch do JSON**
+2.  Os dados são armazenados em `rotationsData`
+3.  Os elementos dos jogadores são armazenados em cache
+4.  A rotação inicial é exibida
+
+Função principal:
+
+``` javascript
+setRotation(num)
+```
+
+Ela:
+
+-   busca os dados da rotação
+-   move os jogadores
+-   atualiza a descrição
+
+------------------------------------------------------------------------
+
+# 🏐 Identificação dos Jogadores
 
   Prefixo   Significado
   --------- ------------------
@@ -100,98 +125,31 @@ Cada jogador possui um **ID único**, indicando:
   Op        Oposto
   Lib       Líbero
 
-Exemplo:
+------------------------------------------------------------------------
 
-    L-Lev → Levantador do time esquerdo
-    R-P1 → Ponteiro 1 do time direito
+# 🎮 Controles
+
+Botões permitem trocar a rotação:
+
+-   1 - Rotação - 2
+-   6 - Rotação - 1
+-   5 - Rotação - 6
+-   4 - Rotação - 5
+-   3 - Rotação - 4
+-   2 - Rotação - 3
 
 ------------------------------------------------------------------------
 
-# 🎮 Controles da Aplicação
+# 🎨 Interface
 
-A interface possui botões que permitem trocar a rotação:
+A quadra possui:
 
-    1 - Rotação - 2
-    6 - Rotação - 1
-    5 - Rotação - 6
-    4 - Rotação - 5
-    3 - Rotação - 4
-    2 - Rotação - 3
+-   rede
+-   linha dos 3 metros
+-   divisão saque/recepção
+-   jogadores representados por círculos
 
-Ao clicar em um botão:
-
-1️⃣ O JavaScript identifica a rotação escolhida\
-2️⃣ Atualiza as posições dos jogadores\
-3️⃣ Atualiza a descrição da rotação
-
-------------------------------------------------------------------------
-
-# ⚡ Otimização do Código
-
-O script foi otimizado para melhorar a performance.
-
-### 1️⃣ Cache de elementos do DOM
-
-Os jogadores são armazenados em memória apenas uma vez:
-
-``` javascript
-const playersDOM = {};
-```
-
-Isso evita múltiplas buscas com `getElementById`.
-
-------------------------------------------------------------------------
-
-### 2️⃣ Inicialização automática
-
-Quando a página carrega:
-
-``` javascript
-window.onload = () => {
-    setRotation(1);
-};
-```
-
-A aplicação inicia automaticamente na **rotação 1**.
-
-------------------------------------------------------------------------
-
-### 3️⃣ Atualização dinâmica
-
-A função principal do sistema:
-
-``` javascript
-function setRotation(num)
-```
-
-Ela:
-
--   recebe o número da rotação
--   busca os dados correspondentes
--   move os jogadores na quadra
--   atualiza a descrição
-
-------------------------------------------------------------------------
-
-# 🎨 Interface Visual
-
-A interface simula uma **quadra de voleibol**, contendo:
-
--   Linha da rede\
--   Linha dos 3 metros\
--   Separação entre saque e recepção\
--   Jogadores representados por círculos
-
-### Cores utilizadas
-
-  Elemento        Cor
-  --------------- ----------
-  Time esquerdo   Azul
-  Time direito    Vermelho
-  Líbero          Amarelo
-  Quadra          Laranja
-
-As movimentações dos jogadores possuem **animação suave** utilizando:
+Animação:
 
 ``` css
 transition: all 0.8s ease-in-out;
@@ -199,46 +157,26 @@ transition: all 0.8s ease-in-out;
 
 ------------------------------------------------------------------------
 
-# ▶️ Como Executar o Projeto
+# ▶️ Como Executar
 
-1️⃣ Baixe ou clone o repositório
+Clone o repositório:
 
 ``` bash
 git clone https://github.com/seu-usuario/projeto-rotacoes-volei
 ```
 
-2️⃣ Abra o arquivo:
+Use um servidor local.
 
-    index.html
+No **VS Code**:
 
-3️⃣ Clique nos botões para visualizar as rotações.
-
-Não é necessário instalar nenhuma dependência.
-
-------------------------------------------------------------------------
-
-# 🚀 Possíveis Melhorias Futuras
-
-Algumas melhorias que podem ser implementadas:
-
--   Adicionar **mais rotações**
--   Permitir **arrastar jogadores manualmente**
--   Criar **animação de movimentação tática**
--   Adicionar **modo treinador (editar posições)**
--   Tornar a aplicação **responsiva para celular**
--   Salvar formações com **LocalStorage**
--   Criar **versão com React ou Canvas**
+1.  Instale **Live Server**
+2.  Clique com botão direito no `index.html`
+3.  Clique em **Open with Live Server**
 
 ------------------------------------------------------------------------
 
 # 👨‍💻 Autor
 
-Projeto desenvolvido por **Eduardo Silveira da Silva**
-
-Estudante de **Análise e Desenvolvimento de Sistemas**\
-Interesses em:
-
--   Desenvolvimento Web
--   Automação
--   Lógica de programação
--   Visualização de dados
+**Eduardo Silveira da Silva**
+Estudante de Análise e Desenvolvimento de Sistemas
+Engenharia de Controle e Automação
